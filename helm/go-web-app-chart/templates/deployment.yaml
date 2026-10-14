@@ -24,9 +24,17 @@ spec:
               containerPort: 8080
           livenessProbe:
             httpGet:
-              path: /
+              path: /home
               port: http
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 2
+            failureThreshold: 3
           readinessProbe:
             httpGet:
-              path: /
+              path: /home
               port: http
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            timeoutSeconds: 2
+            failureThreshold: 3
